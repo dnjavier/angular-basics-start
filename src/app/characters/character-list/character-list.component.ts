@@ -131,11 +131,29 @@ export class CharacterListComponent implements OnInit {
     created: '2014-12-10T15:59:50.509000Z',
     edited: '2014-12-20T21:17:50.323000Z'
   }];
-  listFilter = 'Luke';
+
+  filteredCharacters: any[];
+  private _listFilter: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.filteredCharacters = this.characters;
+  }
+
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredCharacters = this._listFilter ? this.performFilter(this.listFilter) : this.characters;
+  }
+
+  performFilter(filterBy: string): any[] {
+    filterBy = filterBy.toLowerCase();
+    return this.characters.filter(character => {
+      return character.name.toLowerCase().includes(filterBy);
+    });
   }
 
   toggleImage(): void {

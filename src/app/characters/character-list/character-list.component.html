@@ -35,7 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let character of characters">
+                    <tr *ngFor="let character of filteredCharacters">
                         <td>
                             <img *ngIf="showImage"
                                  [src]="character.imageUrl"
