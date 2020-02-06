@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class CharacterListComponent implements OnInit {
 
   pageTitle = 'Character List';
+  imageWidth = 50;
+  imageMargin = 2;
+  showImage = false;
   characters: any[] = [{
     name: 'Luke Skywalker',
     imageUrl: 'assets/images/characters/luke.png',
@@ -128,10 +131,15 @@ export class CharacterListComponent implements OnInit {
     created: '2014-12-10T15:59:50.509000Z',
     edited: '2014-12-20T21:17:50.323000Z'
   }];
+  listFilter = 'Luke';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleImage(): void {
+    this.showImage = !this.showImage;
   }
 
 }
