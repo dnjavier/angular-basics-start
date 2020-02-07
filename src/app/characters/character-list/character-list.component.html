@@ -47,7 +47,7 @@
                         <td>{{ character.birth_year }}</td>
                         <td>{{ character.gender | titlecase }}</td>
                         <td>{{ character.created | date:'dd MMM y' | uppercase }}</td>
-                        <td>{{ character.strength }}</td>
+                        <td><app-bar [bar]="character.strength"></app-bar></td>
                     </tr>
                 </tbody>
             </table>
